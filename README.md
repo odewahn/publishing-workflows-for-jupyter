@@ -1,1 +1,1 @@
-# Creating Repeatable Workflows with Docker and IPython
+# Publishing workflows for Jupyter

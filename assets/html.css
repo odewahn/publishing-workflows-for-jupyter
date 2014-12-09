@@ -19,3 +19,11 @@ h1, h2, h3 {
 	right: 0; 
 	border: 0;
 }
+
+.logo {
+   z-index: 999999999; 
+   position: absolute; 
+   bottom: 0; 
+   left: 300px; 
+   border: 0;
+}

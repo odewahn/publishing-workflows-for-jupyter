@@ -13,6 +13,7 @@
     <img src="https://s3.amazonaws.com/orm-atlas-media/fork-on-github.png" class="fork-on-github"/>
   </a>
 
+  <img class="logo" width="200px" src="http://orm-logo-service.herokuapp.com/radar/logo.svg">
 	
 <textarea id="source">
 
@@ -47,15 +48,21 @@ plt.plot(x, np.sin(x), x, np.cos(x))
 # Generate a static site with embeddable code widget
 
 * Use tools like [Jekyll](http://jekyllrb.com/), [Pelican](http://blog.getpelican.com/), or [Atlas](https://atlas.oreilly.com/)
-* Code runs in a widget powered by a [jupyter-kernel](https://github.com/oreillymedia/jupyter-kernel) running in a Docker container
-  * Based on the original [singlecell](https://github.com/minrk/singlecell) server by Min RR
-  * Need a singlecell for IPython 2 and 3, not just 1
 
 <center>
 <img src="images/jupyter-plugin.png" width=50%/>
 </center>
 ---
 
+# Each kernel runs in a Docker container
+
+* Each user gets his or her own kernel
+* Kernels run in Docker container
+  * [jupyter-kernel](https://github.com/oreillymedia/jupyter-kernel) is a reference implementation
+* Based on the original [singlecell](https://github.com/minrk/singlecell) server by Min RR
+  * Need a singlecell for IPython 2 and 3, not just 1
+
+---
 # Scaling strategy for kernels
 
 * Short-term, [tmpnb](https://github.com/jupyter/tmpnb) can spin up new, transitory kernels
@@ -125,6 +132,7 @@ Reference implementation <br>in O'Reilly Atlas
 * Disadvantages
   * No easy way in tmpnb to specify a different container (i.e., one with your own dependencies)
   * No authentication framework
+
 
     </textarea>
     <script src="//gnab.github.io/remark/downloads/remark-latest.min.js">

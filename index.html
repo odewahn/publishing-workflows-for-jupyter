@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Publishing Workflows for Jupyter</title>
+    <title>Publishing Workflows for IPython/Jupyter Notebooks</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <link href='assets/html.css' rel='stylesheet' type='text/css'> </link>
@@ -21,9 +21,8 @@ class: center, middle
 
 # Publishing Workflows <br>for Jupyter
 
-## Andrew Odewahn
-@odewahn
-### O'Reilly Media
+## Andrew Odewahn |  @odewahn
+##    Kyle Kelley |  @rgbkrk
 
 http://odewahn.github.io/publishing-workflows-for-jupyter
 
@@ -31,7 +30,7 @@ http://odewahn.github.io/publishing-workflows-for-jupyter
 # Goal
 
 <div style="font-size: 150%">
-Demonstrate an authoring and publishing process for long-form content (books, courses, tutorials, etc) that can include the Jupyter computing environment, but are authored outside of the Jupyter authoring environment.
+Demonstrate an authoring and publishing process for long-form content (books, courses, tutorials, etc) that can include the IPyhton Notebook computing environment, but are authored outside of the IPython authoring environment.  (And, hopefully, Jupyter very soon!)
 </div>
 
 ---
@@ -65,7 +64,7 @@ plt.plot(x, np.sin(x), x, np.cos(x))
 
 * Each user gets his or her own kernel
 * Kernels run in Docker container
-  * [jupyter-kernel](https://github.com/oreillymedia/jupyter-kernel) is a reference implementation
+  * [ipython-kernel](https://github.com/oreillymedia/ipython-kernel) is a reference implementation
 * Based on the original [singlecell](https://github.com/minrk/singlecell) server by Min RR
   * Need a singlecell for IPython 2 and 3, not just 1
 
@@ -148,6 +147,7 @@ $ atlas publish --public
 
 * Advantages
   * More design possibilities
+  * Ability to embed widget on blogs, nbviewer, etc.
   * Static assets served by CDN
   * Simple writing and publishing process
   * Support for publishing-specific features like cross references, sidebars, index terms, etc
@@ -155,6 +155,13 @@ $ atlas publish --public
   * No easy way in tmpnb to specify a different container (i.e., one with your own dependencies)
   * No authentication framework
 
+---
+# Future Directions to explore
+
+* Create kernels servers for IPython 2 and Jupyter (i.e., update the singlecell example for those versions)
+* Remote service that you call and it returns you a kernel for a specific language
+* Front end javascript that can work with the above remote API
+* Minimized set of IPython/Jupyter javascript that can handle the outputs without being the notebook
 
     </textarea>
     <script src="//gnab.github.io/remark/downloads/remark-latest.min.js">

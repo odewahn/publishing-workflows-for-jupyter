@@ -28,6 +28,13 @@ class: center, middle
 http://odewahn.github.io/publishing-workflows-for-jupyter
 
 ---
+# Goal
+
+<div style="font-size: 150%">
+Demonstrate an authoring and publishing process for long-form content (books, courses, tutorials, etc) that can include the Jupyter computing environment, but are authored outside of the Jupyter authoring environment.
+</div>
+
+---
 
 # Write in Markdown, AsciiDoc, or HTML
 
@@ -48,14 +55,13 @@ plt.plot(x, np.sin(x), x, np.cos(x))
 # Generate a static site with embeddable code widget
 
 * Write in tools like [Jekyll](http://jekyllrb.com/), [Pelican](http://blog.getpelican.com/), or [Atlas](https://atlas.oreilly.com/)
-* Code cells run in a widget
+* Code cells run in a widget, everything else is HTML, CSS, and JavaScript
 
-<center>
-<img src="images/jupyter-plugin.png" width=70%/>
-</center>
+.center[<img src="images/jupyter-plugin.png" width=70%/>]
+
 ---
 
-# Each kernel widget is a Docker container
+# Kernels run in Docker containers 
 
 * Each user gets his or her own kernel
 * Kernels run in Docker container
@@ -64,22 +70,36 @@ plt.plot(x, np.sin(x), x, np.cos(x))
   * Need a singlecell for IPython 2 and 3, not just 1
 
 ---
-# Scaling strategy for kernels
+# Scaling strategy
 
 * Short-term, [tmpnb](https://github.com/jupyter/tmpnb) can spin up new, transitory kernels
 * Long-term, we need a new system with an API that can handle scaling and security
 
-<center>
-<img src="images/tmpnb.png" width=60%/>
-</center>
-
+.center[<img src="images/tmpnb.png" width=60%/>]
 
 ---
-class: center, middle
+# Reference implementation in O'Reilly Atlas
 
-<div style="font-size: 200%">
-Reference implementation <br>in O'Reilly Atlas
-</div>
+* Write in Atlas using HTML, Markdown, or Asciidoc
+* Markup code examples as follows:
+
+```html
+<pre data-executable="ipython" data-code-language="python">
+... your code here ...
+</pre>
+```
+* Specify the `oreillymedia/jupyter_theme` theme
+* Install the [Atlas CLI](https://github.com/oreillymedia/atlas-cli) utility for building and publishing (Mac OSX only for now)
+* Clone your project to your local machine
+* Run the following commands within your cloned directory :
+
+```bash
+$ atlas build --html
+$ atlas publish --public
+```
+
+* Your project will be published on [sites.oreilly.com](http://sites.oreilly.com/odewahn/jem-test/ch01.html)
+
 
 ---
 
@@ -95,9 +115,8 @@ Reference implementation <br>in O'Reilly Atlas
 
 # Specify a Jupyter-enabled theme
 
-<center>
-<img src="images/jupyter-theme.png" width=80%/>
-</center>
+.center[<img src="images/jupyter-theme.png" width=80%/>]
+
 ---
 
 # Build and publish a static site
@@ -112,7 +131,7 @@ Reference implementation <br>in O'Reilly Atlas
 
 ---
 
-# Run code on the static site via a widget
+# Run code via the widget
 
 <center>
 <video autoplay="true" loop="true" muted="true" width="640">
@@ -121,6 +140,7 @@ Reference implementation <br>in O'Reilly Atlas
 </center>
 
 * Sample is available on [sites.oreilly.com](http://sites.oreilly.com/odewahn/jem-test/ch01.html)
+* Data is persistent from widget to widget, just like the Notebook
 
 ---
 
@@ -130,6 +150,7 @@ Reference implementation <br>in O'Reilly Atlas
   * More design possibilities
   * Static assets served by CDN
   * Simple writing and publishing process
+  * Support for publishing-specific features like cross references, sidebars, index terms, etc
 * Disadvantages
   * No easy way in tmpnb to specify a different container (i.e., one with your own dependencies)
   * No authentication framework

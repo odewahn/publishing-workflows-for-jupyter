@@ -43,7 +43,7 @@ Demonstrate an authoring and publishing process for long-form content (books, co
 * Specify executable code cells using a simple, declarative format.  For example:
 
 ```html
-<pre data-executable="ipython" data-code-language="python">
+<pre data-code-language="python" data-executable="true" data-type="programlisting">
 %pylab inline
 x = np.linspace(0, 10)
 plt.plot(x, np.sin(x), x, np.cos(x))
@@ -84,7 +84,7 @@ plt.plot(x, np.sin(x), x, np.cos(x))
 * Mark up code examples as follows:
 
 ```html
-<pre data-executable="ipython" data-code-language="python">
+<pre data-code-language="python" data-executable="true" data-type="programlisting">
 ... your code here ...
 </pre>
 ```
